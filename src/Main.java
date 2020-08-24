@@ -1,33 +1,12 @@
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.Arrays;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        read();
+//        Days.read();
+        //421,Nettie,;303,Lia,306;101,Jamie,110;209,Jared,;306,Meghan,;,Leon,301;301,Crystal,303;,Leo,201;,Eric,401;111,Jim,;110,Roman,111;207,Gene,209;420,Edie,421;401,Nettie,420;201,Jodie,207;,Alfie,101;
+        Departments departments = new Departments();
+        departments.scan();
     }
-    public static void read() {
-        Scanner scanner = new Scanner(System.in);
-        int employees;
-        String day;
-        do {
-            System.out.println("Please enter employees number");
-            while (!scanner.hasNextInt()) {
-                String input = scanner.next();
-            }
-            employees = scanner.nextInt();
-        } while (employees > 100 || employees < 0);
 
-        do {
-            System.out.println("Please enter valid day");
-            while (!scanner.hasNextLine()) {
-                String input = scanner.next();
-            }
-            day = scanner.nextLine();
-        } while (!Days.contains(day.toUpperCase()));
-
-        System.out.println("Day of week: "+ Days.dayValue(day) + "," +"\nOffice Occupancy " +
-                Days.of(Days.dayValue(day.toUpperCase())).getOccupancy(employees) + "%");
-    }
 }
